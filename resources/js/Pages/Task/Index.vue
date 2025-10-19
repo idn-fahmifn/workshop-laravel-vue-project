@@ -69,7 +69,7 @@ const getPriorityBadgeClasses = (priority) => {
                     </th>
                   </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
+                <tbody class="bg-white divide-y divide-gray-200" >
                   <tr v-for="task in props.data.data" :key="task.id">
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <Link :href="route('task.show', task.id)" class="hover:text-indigo-600 font-medium">{{ task.title
@@ -101,11 +101,13 @@ const getPriorityBadgeClasses = (priority) => {
                   class="px-3 py-2 text-sm text-gray-400 border rounded-lg cursor-not-allowed">
                 </div>
 
-                <Link v-else :href="link.url" v-html="link.label"
+                <Link v-else :href="link.url"
                   class="px-3 py-2 text-sm border rounded-lg transition duration-150" :class="{
                     'bg-indigo-600 text-white border-indigo-600 font-bold': link.active,
                     'text-gray-700 hover:bg-gray-100': !link.active
                   }">
+
+                  <span v-html="link.label"></span>
                 </Link>
               </template>
             </div>
